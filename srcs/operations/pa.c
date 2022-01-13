@@ -6,7 +6,7 @@
 /*   By: hel-makh <hel-makh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 14:51:46 by hel-makh          #+#    #+#             */
-/*   Updated: 2022/01/11 11:23:42 by hel-makh         ###   ########.fr       */
+/*   Updated: 2022/01/13 12:42:00 by hel-makh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,6 @@ void	ft_pa(t_stack *a, t_stack *b)
 		return ;
 	a->stack[a->top] = b->stack[b->top - 1];
 	a->top ++;
-	b->stack[b->top - 1] = (int)NULL;
+	b->stack[b->top - 1] = (int) NULL;
 	b->top --;
 }

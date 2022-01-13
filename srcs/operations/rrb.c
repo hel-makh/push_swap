@@ -6,7 +6,7 @@
 /*   By: hel-makh <hel-makh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 11:39:21 by hel-makh          #+#    #+#             */
-/*   Updated: 2022/01/11 11:40:22 by hel-makh         ###   ########.fr       */
+/*   Updated: 2022/01/13 12:43:26 by hel-makh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,17 @@
 void	ft_rrb(t_stack *a, t_stack *b)
 {
 	int	i;
-    int rotate;
+	int	rotate;
 
-    if (b->top < 2)
-        return ;
-    (void)a;
-    rotate = b->stack[0];
-    i = 1;
-    while (i < b->top)
-    {
-        b->stack[i - 1] = b->stack[i];
-        i ++;
-    }
-    b->stack[i - 1] = rotate;
+	if (b->top < 2)
+		return ;
+	(void)a;
+	rotate = b->stack[0];
+	i = 1;
+	while (i < b->top)
+	{
+		b->stack[i - 1] = b->stack[i];
+		i ++;
+	}
+	b->stack[i - 1] = rotate;
 }
