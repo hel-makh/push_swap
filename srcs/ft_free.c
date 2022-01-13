@@ -1,25 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sb.c                                               :+:      :+:    :+:   */
+/*   ft_free.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hel-makh <hel-makh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/10 11:55:54 by hel-makh          #+#    #+#             */
-/*   Updated: 2022/01/11 12:19:13 by hel-makh         ###   ########.fr       */
+/*   Created: 2022/01/13 20:52:51 by hel-makh          #+#    #+#             */
+/*   Updated: 2022/01/13 20:52:54 by hel-makh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	ft_sb(t_stack *a, t_stack *b)
+void	*ft_free(void *ptr)
 {
-	int	swap;
+	free(ptr);
+	return (NULL);
+}
 
-	if (b->top < 2)
-		return ;
-	(void)a;
-	swap = b->stack[b->top - 1];
-	b->stack[b->top - 1] = b->stack[b->top - 2];
-	b->stack[b->top - 2] = swap;
+void	*ft_free_2d(char **ptr)
+{
+	int	i;
+
+	i = 0;
+	while (ptr[i])
+		free(ptr[i++]);
+	free(ptr);
+	return (NULL);
+}
+
+void	*ft_free_3d(char ***ptr)
+{
+	int	i;
+
+	i = 0;
+	while (ptr[i])
+		ft_free_2d(ptr[i++]);
+	return (NULL);
 }

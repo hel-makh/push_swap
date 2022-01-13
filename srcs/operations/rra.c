@@ -6,13 +6,13 @@
 /*   By: hel-makh <hel-makh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 11:39:26 by hel-makh          #+#    #+#             */
-/*   Updated: 2022/01/13 12:43:12 by hel-makh         ###   ########.fr       */
+/*   Updated: 2022/01/13 20:03:45 by hel-makh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
-void	ft_rra(t_stack *a, t_stack *b)
+void	ft_rra(t_stack *a, t_stack *b, char **instructions)
 {
 	int	i;
 	int	rotate;
@@ -28,4 +28,5 @@ void	ft_rra(t_stack *a, t_stack *b)
 		i ++;
 	}
 	a->stack[i - 1] = rotate;
+	*instructions = ft_strnjoin(*instructions, "rra\n", 4);
 }

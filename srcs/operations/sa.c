@@ -6,13 +6,13 @@
 /*   By: hel-makh <hel-makh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 11:55:54 by hel-makh          #+#    #+#             */
-/*   Updated: 2022/01/11 12:18:45 by hel-makh         ###   ########.fr       */
+/*   Updated: 2022/01/13 20:03:40 by hel-makh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
-void	ft_sa(t_stack *a, t_stack *b)
+void	ft_sa(t_stack *a, t_stack *b, char **instructions)
 {
 	int	swap;
 
@@ -22,4 +22,5 @@ void	ft_sa(t_stack *a, t_stack *b)
 	swap = a->stack[a->top - 1];
 	a->stack[a->top - 1] = a->stack[a->top - 2];
 	a->stack[a->top - 2] = swap;
+	*instructions = ft_strnjoin(*instructions, "sa\n", 3);
 }
