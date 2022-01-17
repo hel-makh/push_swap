@@ -6,99 +6,69 @@
 /*   By: hel-makh <hel-makh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 20:36:32 by hel-makh          #+#    #+#             */
-/*   Updated: 2022/01/13 21:31:34 by hel-makh         ###   ########.fr       */
+/*   Updated: 2022/01/17 20:06:34 by hel-makh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/push_swap.h"
 
-static void	ft_change_instruction(char **instruction, char **next, char *new)
-{
-	free(*instruction);
-	*instruction = ft_strdup(new);
-	ft_bzero(*next, ft_strlen(*next));
-}
-
-static void	ft_optimise_instructions(char **arr)
+static void	ft_push_to_stack_b(t_stacks *stacks, int nb)
 {
 	int	i;
 
-	i = 0;
-	while (arr[i])
+	i =  ft_get_int_index(stacks->a, nb);
+	while (stacks->a.stack[stacks->a.top] != nb)
 	{
-		if (!ft_strncmp(arr[i], "sa", 2) && !ft_strncmp(arr[i + 1], "sb", 2))
-			ft_change_instruction(&arr[i], &arr[i + 1], "ss");
-		if (!ft_strncmp(arr[i], "ra", 2) && !ft_strncmp(arr[i + 1], "rb", 2))
-			ft_change_instruction(&arr[i], &arr[i + 1], "rr");
-		if (!ft_strncmp(arr[i], "rra", 3) && !ft_strncmp(arr[i + 1], "rrb", 3))
-			ft_change_instruction(&arr[i], &arr[i + 1], "rrr");
-		i ++;
+		if (i > stacks->a.top / 2)
+			ft_ra(stacks);
+		else
+			ft_rra(stacks);
 	}
+	ft_pb(stacks);
 }
 
-static void	ft_sort_a(t_stacks *stacks, int n, char **instructions)
+void	ft_fill_stack_b(t_stacks *stacks, int stack_head)
 {
-	if (stacks->a.stack[n] == stacks->sorted.stack[n])
-		return ;
-	if (n == 0)
+	int	nb;
+	int	comp;
+	int	i;
+
+	comp = ft_get_int_index(stacks->a, stack_head);
+	i = comp - 1;
+	if (i < 0)
+		i = stacks->a.top - 1;
+	while(stacks->a.stack[i] != stack_head)
 	{
-		if (ft_get_int_index(stacks->a, stacks->sorted.stack[n])
-			> stacks->a.top / 2)
-			ft_ra(&stacks->a, &stacks->b, instructions);
-		else
-			ft_rra(&stacks->a, &stacks->b, instructions);
-	}
-	else
-	{
-		if (ft_get_int_index(stacks->a, stacks->sorted.stack[n])
-			< stacks->a.top - 1)
-			ft_pb(&stacks->a, &stacks->b, instructions);
+		// printf("i: %d\n", i);
+		if (i < 0)
+			i = stacks->a.top - 1;
+		if (stacks->a.stack[i] == stack_head)
+			break ;
+		if (stacks->a.stack[i] > stacks->a.stack[comp])
+			comp = i;
 		else
 		{
-			ft_sa(&stacks->a, &stacks->b, instructions);
-			ft_pb(&stacks->a, &stacks->b, instructions);
+			nb = stacks->a.stack[i - 1];
+			ft_push_to_stack_b(stacks, stacks->a.stack[i]);
+			i = ft_get_int_index(stacks->a, nb) + 1;
 		}
+		i --;
 	}
-}
-
-static void	ft_sort_b(t_stacks *stacks, int n, char **instructions)
-{
-	if (n == 0)
-		return ;
-	if (ft_get_int_index(stacks->b, stacks->sorted.stack[n])
-		== stacks->b.top - 1)
-		ft_pa(&stacks->a, &stacks->b, instructions);
-	else if (ft_get_int_index(stacks->b, stacks->sorted.stack[n])
-		> stacks->b.top / 2)
-		ft_rb(&stacks->a, &stacks->b, instructions);
-	else if (ft_get_int_index(stacks->b, stacks->sorted.stack[n])
-		<= stacks->b.top / 2)
-		ft_rrb(&stacks->a, &stacks->b, instructions);
 }
 
 void	push_swap(t_stacks *stacks)
 {
-	int		n;
-	int		i;
-	char	*instructions;
-	char	**arr;
+	int		stack_head;
 
-	instructions = ft_strdup("");
-	n = 0;
-	while (n < stacks->sorted.top)
-	{
-		if (ft_get_int_index(stacks->a, stacks->sorted.stack[n]) != -1)
-			ft_sort_a(stacks, n, &instructions);
-		else if (ft_get_int_index(stacks->b, stacks->sorted.stack[n]) != -1)
-			ft_sort_b(stacks, n, &instructions);
-		if (stacks->a.stack[n] == stacks->sorted.stack[n])
-			n ++;
-	}
-	arr = ft_split(instructions, '\n');
-	instructions = ft_free(instructions);
-	ft_optimise_instructions(arr);
-	i = 0;
-	while (arr[i])
-		ft_putendl_fd(arr[i++], STDOUT_FILENO);
-	arr = ft_free_2d(arr);
+	stack_head = ft_get_biggest_stack_head(stacks);
+	// printf("stack_head: %d\n", stack_head);
+	ft_fill_stack_b(stacks, stack_head);
+	int i = stacks->a.top - 1;
+	while (i >= 0)
+		printf("a: %d\n", stacks->a.stack[i--]);
+	printf("\n");
+	i = stacks->b.top - 1;
+	while (i >= 0)
+		printf("b: %d\n", stacks->b.stack[i--]);
+	ft_print_instructions(stacks->instructions);
 }
