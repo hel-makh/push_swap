@@ -6,27 +6,26 @@
 /*   By: hel-makh <hel-makh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 15:05:32 by hel-makh          #+#    #+#             */
-/*   Updated: 2022/01/13 20:03:51 by hel-makh         ###   ########.fr       */
+/*   Updated: 2022/01/17 19:39:31 by hel-makh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void	ft_ra(t_stack *a, t_stack *b, char **instructions)
+void	ft_ra(t_stacks *stacks)
 {
 	int	i;
 	int	rotate;
 
-	if (a->top < 2)
+	if (stacks->a.top < 2)
 		return ;
-	(void)b;
-	rotate = a->stack[a->top - 1];
-	i = a->top - 1;
+	rotate = stacks->a.stack[stacks->a.top - 1];
+	i = stacks->a.top - 1;
 	while (i > 0)
 	{
-		a->stack[i] = a->stack[i - 1];
+		stacks->a.stack[i] = stacks->a.stack[i - 1];
 		i --;
 	}
-	a->stack[i] = rotate;
-	*instructions = ft_strnjoin(*instructions, "ra\n", 3);
+	stacks->a.stack[i] = rotate;
+	stacks->instructions = ft_strnjoin(stacks->instructions, "ra\n", 3);
 }
