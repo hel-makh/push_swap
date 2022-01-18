@@ -6,7 +6,7 @@
 /*   By: hel-makh <hel-makh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 11:11:10 by hel-makh          #+#    #+#             */
-/*   Updated: 2022/01/18 12:30:19 by hel-makh         ###   ########.fr       */
+/*   Updated: 2022/01/18 19:55:35 by hel-makh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,24 @@
 #include "srcs/operations/rrr.c"
 
 #include "srcs/ft_bubble_sort.c"
-#include "srcs/ft_get_int_index.c"
-#include "srcs/ft_get_biggest_stack_head.c"
 #include "srcs/ft_increment_index.c"
 #include "srcs/ft_decrement_index.c"
+#include "srcs/ft_get_int_index.c"
+#include "srcs/ft_get_biggest_stack_head.c"
 
-#include "push_swap.c"
 #include "srcs/ft_init_stack_b.c"
+#include "srcs/ft_sort_into_stack_a.c"
 #include "srcs/ft_print_stacks.c"
 #include "srcs/ft_print_instructions.c"
+
+static void	push_swap(t_stacks *stacks)
+{
+	ft_init_stack_b(stacks);
+	// ft_print_stacks(*stacks);
+	ft_sort_into_stack_a(stacks);
+	// ft_print_stacks(*stacks);
+	ft_print_instructions(stacks->instructions);
+}
 
 static void	ft_create_stacks(t_stacks *stacks, int size, char *argv[])
 {
