@@ -6,7 +6,7 @@
 /*   By: hel-makh <hel-makh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 10:59:08 by hel-makh          #+#    #+#             */
-/*   Updated: 2022/01/18 14:32:12 by hel-makh         ###   ########.fr       */
+/*   Updated: 2022/01/18 19:55:44 by hel-makh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,13 @@ void	ft_rrb(t_stacks *stacks);
 void	ft_rrr(t_stacks *stacks);
 
 t_stack	ft_sort(t_stack st);
-int     ft_get_int_index(t_stack st, int nb);
-int		ft_get_biggest_stack_head(t_stacks *stacks);
 int		ft_increment_index(t_stack st, int index, int inc_by);
 int		ft_decrement_index(t_stack st, int index, int dec_by);
+int     ft_get_int_index(t_stack st, int nb);
+int		ft_get_biggest_stack_head(t_stacks *stacks);
 
-void	push_swap(t_stacks *stacks);
 void	ft_init_stack_b(t_stacks *stacks);
+void	ft_sort_into_stack_a(t_stacks *stacks);
 void	ft_print_stacks(t_stacks stacks); // TEST
 void	ft_print_instructions(char *instructions);
 
