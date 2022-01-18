@@ -6,7 +6,7 @@
 /*   By: hel-makh <hel-makh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 12:25:49 by hel-makh          #+#    #+#             */
-/*   Updated: 2022/01/18 14:32:00 by hel-makh         ###   ########.fr       */
+/*   Updated: 2022/01/18 15:16:00 by hel-makh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	ft_push_to_stack_b(t_stacks *stacks, int nb)
 {
 	while (stacks->a.stack[stacks->a.top - 1] != nb)
 	{
-		if (ft_get_int_index(stacks->a, nb) > stacks->a.top / 2)
+		if (ft_get_int_index(stacks->a, nb) >= stacks->a.top / 2)
 			ft_ra(stacks);
 		else
 			ft_rra(stacks);
