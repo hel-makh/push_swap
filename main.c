@@ -6,12 +6,15 @@
 /*   By: hel-makh <hel-makh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 11:11:10 by hel-makh          #+#    #+#             */
-/*   Updated: 2022/01/17 19:41:14 by hel-makh         ###   ########.fr       */
+/*   Updated: 2022/01/18 12:30:19 by hel-makh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/push_swap.h"
 #include <stdio.h>
+
+#include "srcs/ft_strnjoin.c"
+#include "srcs/ft_free.c"
 
 #include "srcs/operations/sa.c"
 #include "srcs/operations/sb.c"
@@ -24,13 +27,16 @@
 #include "srcs/operations/rrb.c"
 #include "srcs/operations/rrr.c"
 
-#include "srcs/ft_strnjoin.c"
-#include "srcs/ft_free.c"
 #include "srcs/ft_bubble_sort.c"
 #include "srcs/ft_get_int_index.c"
 #include "srcs/ft_get_biggest_stack_head.c"
-#include "srcs/ft_print_instructions.c"
+#include "srcs/ft_increment_index.c"
+#include "srcs/ft_decrement_index.c"
+
 #include "push_swap.c"
+#include "srcs/ft_init_stack_b.c"
+#include "srcs/ft_print_stacks.c"
+#include "srcs/ft_print_instructions.c"
 
 static void	ft_create_stacks(t_stacks *stacks, int size, char *argv[])
 {

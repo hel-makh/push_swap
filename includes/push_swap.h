@@ -6,7 +6,7 @@
 /*   By: hel-makh <hel-makh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 10:59:08 by hel-makh          #+#    #+#             */
-/*   Updated: 2022/01/17 19:41:52 by hel-makh         ###   ########.fr       */
+/*   Updated: 2022/01/18 12:29:35 by hel-makh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 
 # include <unistd.h>
+# include <stdio.h>
 # include <stdlib.h>
 # include "../Libft/libft.h"
 
@@ -33,6 +34,7 @@ char	*ft_strnjoin(char const *s1, char const *s2, size_t n);
 void	*ft_free(void *ptr);
 void	*ft_free_2d(char **ptr);
 void	*ft_free_3d(char ***ptr);
+
 void    ft_sa(t_stacks *stacks);
 void	ft_sb(t_stacks *stacks);
 void	ft_ss(t_stacks *stacks);
@@ -44,10 +46,16 @@ void	ft_rr(t_stacks *stacks);
 void	ft_rra(t_stacks *stacks);
 void	ft_rrb(t_stacks *stacks);
 void	ft_rrr(t_stacks *stacks);
+
 t_stack	ft_sort(t_stack st);
 int     ft_get_int_index(t_stack st, int nb);
-void	push_swap(t_stacks *stacks);
 int		ft_get_biggest_stack_head(t_stacks *stacks);
+int		ft_increment_index(t_stack st, int index, int inc_by);
+int		ft_decrement_index(t_stack st, int index, int dec_by);
+
+void	push_swap(t_stacks *stacks);
+void	ft_init_stack_b(t_stacks *stacks, int stack_head);
+void	ft_print_stacks(t_stacks stacks); // TEST
 void	ft_print_instructions(char *instructions);
 
 #endif
