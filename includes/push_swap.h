@@ -6,7 +6,7 @@
 /*   By: hel-makh <hel-makh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 10:59:08 by hel-makh          #+#    #+#             */
-/*   Updated: 2022/01/18 12:29:35 by hel-makh         ###   ########.fr       */
+/*   Updated: 2022/01/18 14:32:12 by hel-makh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int		ft_increment_index(t_stack st, int index, int inc_by);
 int		ft_decrement_index(t_stack st, int index, int dec_by);
 
 void	push_swap(t_stacks *stacks);
-void	ft_init_stack_b(t_stacks *stacks, int stack_head);
+void	ft_init_stack_b(t_stacks *stacks);
 void	ft_print_stacks(t_stacks stacks); // TEST
 void	ft_print_instructions(char *instructions);
 

@@ -6,7 +6,7 @@
 /*   By: hel-makh <hel-makh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 12:25:49 by hel-makh          #+#    #+#             */
-/*   Updated: 2022/01/18 13:04:11 by hel-makh         ###   ########.fr       */
+/*   Updated: 2022/01/18 14:32:00 by hel-makh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,14 @@ static void	ft_push_to_stack_b(t_stacks *stacks, int nb)
 	ft_pb(stacks);
 }
 
-void	ft_init_stack_b(t_stacks *stacks, int stack_head)
+void	ft_init_stack_b(t_stacks *stacks)
 {
-	int	nb;
+	int	stack_head;
 	int	comp;
+	int	nb;
 	int	i;
 
+	stack_head = ft_get_biggest_stack_head(stacks);
 	comp = ft_get_int_index(stacks->a, stack_head);
 	i = ft_decrement_index(stacks->a, comp, 1);
 	while (stacks->a.stack[i] != stack_head)
