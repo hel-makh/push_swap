@@ -6,7 +6,7 @@
 /*   By: hel-makh <hel-makh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 11:11:10 by hel-makh          #+#    #+#             */
-/*   Updated: 2022/01/18 19:55:35 by hel-makh         ###   ########.fr       */
+/*   Updated: 2022/01/18 22:56:04 by hel-makh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,5 +104,5 @@ int	main(int argc, char *argv[])
 	stacks.sorted = ft_sort(stacks.a);
 	stacks.instructions = ft_strdup("");
 	push_swap(&stacks);
-	return (EXIT_SUCCESS);
+	ft_quit_program(EXIT_SUCCESS, &stacks);
 }

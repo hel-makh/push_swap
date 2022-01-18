@@ -6,7 +6,7 @@
 /*   By: hel-makh <hel-makh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 13:51:56 by hel-makh          #+#    #+#             */
-/*   Updated: 2022/01/18 19:08:13 by hel-makh         ###   ########.fr       */
+/*   Updated: 2022/01/18 22:59:31 by hel-makh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ void	ft_print_instructions(char *instructions)
 	int		i;
 
 	arr = ft_split(instructions, '\n');
-	instructions = ft_free(instructions);
 	ft_optimise_instructions(arr);
 	i = 0;
 	while (arr[i])
