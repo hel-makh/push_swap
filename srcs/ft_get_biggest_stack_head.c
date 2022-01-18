@@ -6,7 +6,7 @@
 /*   By: hel-makh <hel-makh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 16:33:04 by hel-makh          #+#    #+#             */
-/*   Updated: 2022/01/17 19:22:07 by hel-makh         ###   ########.fr       */
+/*   Updated: 2022/01/18 13:03:28 by hel-makh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,15 @@ static void	ft_compare_ints(t_stacks *stacks, int *count, int i)
 	int	j;
 
 	comp = i;
-	j = i - 1;
+	j = ft_decrement_index(stacks->a, i, 1);
 	while (j != i)
 	{
-		if (j < 0)
-			j = stacks->a.top - 1;
-		if (j == i)
-			break ;
 		if (stacks->a.stack[j] > stacks->a.stack[comp])
 		{
 			count[i] += 1;
 			comp = j;
 		}
-		j --;
+		j = ft_decrement_index(stacks->a, j, 1);
 	}
 }
 
@@ -46,16 +42,11 @@ int	ft_get_biggest_stack_head(t_stacks *stacks)
 	while (i >= 0)
 	{
 		ft_compare_ints(stacks, count, i);
-		if (i < stacks->a.top && count[i] > count[i + 1])
+		if (i < stacks->a.top
+			&& count[i] > count[ft_get_int_index(stacks->a, head)])
 			head = stacks->a.stack[i];
 		i --;
 	}
-	// int j = 0;
-	// while (j < stacks->a.top)
-	// {
-	// 	printf("count of %d: %d\n", stacks->a.stack[j], count[j]);
-	// 	j ++;
-	// }
 	count = ft_free(count);
 	return (head);
 }
