@@ -6,7 +6,7 @@
 /*   By: hel-makh <hel-makh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 11:11:10 by hel-makh          #+#    #+#             */
-/*   Updated: 2022/01/19 10:25:40 by hel-makh         ###   ########.fr       */
+/*   Updated: 2022/01/19 21:17:11 by hel-makh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,7 @@
 static void	push_swap(t_stacks *stacks)
 {
 	ft_init_stack_b(stacks);
-	// ft_print_stacks(*stacks);
 	ft_sort_into_stack_a(stacks);
-	// ft_print_stacks(*stacks);
 	ft_print_instructions(stacks->instructions);
 }
 
