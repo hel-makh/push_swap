@@ -6,7 +6,7 @@
 /*   By: hel-makh <hel-makh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 14:36:14 by hel-makh          #+#    #+#             */
-/*   Updated: 2022/01/18 19:45:19 by hel-makh         ###   ########.fr       */
+/*   Updated: 2022/01/19 21:15:31 by hel-makh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int	ft_get_int_next_to(t_stack st, int nb)
 	while (i < st.top)
 	{
 		j = ft_decrement_index(st, i, 1);
-		if(st.stack[i] < nb
+		if (st.stack[i] < nb
 			&& st.stack[j] > nb)
 			return (st.stack[j]);
 		i ++;
