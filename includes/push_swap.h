@@ -6,7 +6,7 @@
 /*   By: hel-makh <hel-makh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 10:59:08 by hel-makh          #+#    #+#             */
-/*   Updated: 2022/01/18 19:55:44 by hel-makh         ###   ########.fr       */
+/*   Updated: 2022/01/19 10:25:55 by hel-makh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,6 @@ void	ft_init_stack_b(t_stacks *stacks);
 void	ft_sort_into_stack_a(t_stacks *stacks);
 void	ft_print_stacks(t_stacks stacks); // TEST
 void	ft_print_instructions(char *instructions);
+void	ft_quit_program(int status, t_stacks *stacks);
 
 #endif
