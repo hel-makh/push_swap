@@ -24,7 +24,6 @@ SRCS			=	srcs/ft_strnjoin.c\
 					srcs/ft_get_biggest_stack_head.c\
 					srcs/ft_init_stack_b.c\
 					srcs/ft_sort_into_stack_a.c\
-					srcs/ft_print_stacks.c\
 					srcs/ft_print_instructions.c\
 					srcs/ft_quit_program.c
 
