@@ -32,6 +32,35 @@ SRCS			=	srcs/ft_long_atoi.c\
 OBJS			=	$(SRCS:.c=.o)\
 					$(MAIN:.c=.o)
 
+HEADER_BONUS	=	includes/checker.h
+
+NAME_BONUS		=	checker
+
+MAIN_BONUS		=	checker.c
+
+SRCS_BONUS		=	srcs/ft_long_atoi.c\
+					srcs/ft_strcpy.c\
+					srcs/ft_strnjoin.c\
+					srcs/ft_free.c\
+					srcs/get_next_line.c\
+					srcs/operations/sa.c\
+					srcs/operations/sb.c\
+					srcs/operations/ss.c\
+					srcs/operations/pa.c\
+					srcs/operations/pb.c\
+					srcs/operations/ra.c\
+					srcs/operations/rb.c\
+					srcs/operations/rr.c\
+					srcs/operations/rra.c\
+					srcs/operations/rrb.c\
+					srcs/operations/rrr.c\
+					srcs/ft_check_instructions.c\
+					srcs/ft_checker_instructions.c\
+					srcs/ft_quit_checker.c
+
+OBJS_BONUS		=	$(SRCS_BONUS:.c=.o)\
+					$(MAIN_BONUS:.c=.o)
+
 GCC				=	cc
 
 CFLAGS			=	-Wall -Wextra -Werror
@@ -46,6 +75,11 @@ $(NAME):		$(OBJS) $(HEADER)
 				mv Libft/libft.a ./libft.a
 				$(GCC) $(CFLAGS) libft.a $(OBJS) -o $(NAME)
 
+bonus:			$(OBJS_BONUS) $(HEADER_BONUS)
+				make bonus -C Libft
+				mv Libft/libft.a ./libft.a
+				$(GCC) $(CFLAGS) libft.a $(OBJS_BONUS) -o $(NAME_BONUS)
+
 all:			$(NAME)
 
 clean:
@@ -53,7 +87,7 @@ clean:
 				make clean -C Libft
 
 fclean:			clean
-				$(RM) $(NAME) libft.a
+				$(RM) $(NAME) $(NAME_BONUS) libft.a
 
 re:				fclean all
 
