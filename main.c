@@ -6,39 +6,11 @@
 /*   By: hel-makh <hel-makh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 11:11:10 by hel-makh          #+#    #+#             */
-/*   Updated: 2022/01/21 13:51:58 by hel-makh         ###   ########.fr       */
+/*   Updated: 2022/01/21 18:20:43 by hel-makh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/push_swap.h"
-#include <stdio.h>
-
-// #include "srcs/ft_strnjoin.c"
-// #include "srcs/ft_free.c"
-// #include "srcs/ft_get_min_index.c"
-
-// #include "srcs/operations/sa.c"
-// #include "srcs/operations/sb.c"
-// #include "srcs/operations/ss.c"
-// #include "srcs/operations/pa.c"
-// #include "srcs/operations/pb.c"
-// #include "srcs/operations/ra.c"
-// #include "srcs/operations/rb.c"
-// #include "srcs/operations/rra.c"
-// #include "srcs/operations/rrb.c"
-// #include "srcs/operations/rrr.c"
-
-// #include "srcs/ft_bubble_sort.c"
-// #include "srcs/ft_increment_index.c"
-// #include "srcs/ft_decrement_index.c"
-// #include "srcs/ft_get_int_index.c"
-// #include "srcs/ft_get_biggest_stack_head.c"
-
-// #include "srcs/ft_init_stack_b.c"
-// #include "srcs/ft_sort_into_stack_a.c"
-// #include "srcs/ft_print_stacks.c"
-// #include "srcs/ft_print_instructions.c"
-// #include "srcs/ft_quit_program.c"
 
 static int	ft_check_duplicates(t_stack st)
 {
