@@ -6,7 +6,7 @@
 /*   By: hel-makh <hel-makh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 11:11:10 by hel-makh          #+#    #+#             */
-/*   Updated: 2022/01/21 01:53:37 by hel-makh         ###   ########.fr       */
+/*   Updated: 2022/01/21 03:45:49 by hel-makh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,10 +144,7 @@ int	main(int argc, char *argv[])
 	stacks.sorted = ft_sort(stacks.a);
 	stacks.instructions = ft_strdup("");
 	if (error)
-	{
-		ft_putendl_fd("Error", STDERR_FILENO);
 		ft_quit_program(EXIT_FAILURE, &stacks);
-	}
 	ft_init_stack_b(&stacks);
 	ft_sort_into_stack_a(&stacks);
 	ft_print_instructions(stacks.instructions);
