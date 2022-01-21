@@ -6,7 +6,7 @@
 /*   By: hel-makh <hel-makh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 14:36:14 by hel-makh          #+#    #+#             */
-/*   Updated: 2022/01/21 12:50:33 by hel-makh         ###   ########.fr       */
+/*   Updated: 2022/01/21 13:53:16 by hel-makh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,6 +127,7 @@ void	ft_sort_into_stack_a(t_stacks *stacks)
 	int	nb;
 	int	next_nb;
 	int	path;
+	int	min;
 
 	while (stacks->b.top)
 	{
@@ -135,10 +136,10 @@ void	ft_sort_into_stack_a(t_stacks *stacks)
 		ft_get_inst_nb_to_top(stacks, nb, next_nb, &path);
 		ft_push_to_stack_a(stacks, nb, next_nb, path);
 	}
-	while (stacks->a.stack[0] != stacks->sorted.stack[0])
+	min = ft_get_min(stacks->a);
+	while (stacks->a.stack[stacks->a.top - 1] != min)
 	{
-		if (ft_get_int_index(stacks->a, stacks->sorted.stack[0])
-			>= stacks->a.top / 2)
+		if (ft_get_int_index(stacks->a, min) >= stacks->a.top / 2)
 			ft_ra(stacks);
 		else
 			ft_rra(stacks);

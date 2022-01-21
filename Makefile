@@ -19,7 +19,7 @@ SRCS			=	srcs/ft_long_atoi.c\
 					srcs/operations/rra.c\
 					srcs/operations/rrb.c\
 					srcs/operations/rrr.c\
-					srcs/ft_bubble_sort.c\
+					srcs/ft_get_min.c\
 					srcs/ft_increment_index.c\
 					srcs/ft_decrement_index.c\
 					srcs/ft_get_int_index.c\

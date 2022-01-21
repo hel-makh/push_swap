@@ -6,7 +6,7 @@
 /*   By: hel-makh <hel-makh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 10:59:08 by hel-makh          #+#    #+#             */
-/*   Updated: 2022/01/21 01:30:25 by hel-makh         ###   ########.fr       */
+/*   Updated: 2022/01/21 13:52:08 by hel-makh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ typedef struct s_stack {
 typedef struct s_stacks {
 	t_stack	a;
 	t_stack	b;
-	t_stack	sorted;
 	char	*instructions;
 }	t_stacks;
 
@@ -61,9 +60,9 @@ void	ft_rrb(t_stacks *stacks);
 void	rrr(t_stacks *stacks);
 void	ft_rrr(t_stacks *stacks);
 
-t_stack	ft_sort(t_stack st);
 int		ft_increment_index(t_stack st, int index, int inc_by);
 int		ft_decrement_index(t_stack st, int index, int dec_by);
+int		ft_get_min(t_stack st);
 int     ft_get_int_index(t_stack st, int nb);
 int		ft_get_biggest_stack_head(t_stacks *stacks);
 

@@ -6,7 +6,7 @@
 /*   By: hel-makh <hel-makh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 10:59:08 by hel-makh          #+#    #+#             */
-/*   Updated: 2022/01/21 04:19:37 by hel-makh         ###   ########.fr       */
+/*   Updated: 2022/01/21 13:52:12 by hel-makh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ typedef struct s_stack {
 typedef struct s_stacks {
 	t_stack	a;
 	t_stack	b;
-	t_stack	sorted;
 	char	*instructions;
 }	t_stacks;
 
