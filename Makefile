@@ -4,8 +4,10 @@ NAME			=	push_swap
 
 MAIN			=	main.c
 
-SRCS			=	srcs/ft_strnjoin.c\
+SRCS			=	srcs/ft_long_atoi.c\
+					srcs/ft_strnjoin.c\
 					srcs/ft_free.c\
+					srcs/ft_get_min_index.c\
 					srcs/operations/sa.c\
 					srcs/operations/sb.c\
 					srcs/operations/ss.c\
