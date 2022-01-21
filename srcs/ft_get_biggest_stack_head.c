@@ -6,7 +6,7 @@
 /*   By: hel-makh <hel-makh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 16:33:04 by hel-makh          #+#    #+#             */
-/*   Updated: 2022/01/18 13:03:28 by hel-makh         ###   ########.fr       */
+/*   Updated: 2022/01/21 18:09:29 by hel-makh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,9 @@ int	ft_get_biggest_stack_head(t_stacks *stacks)
 	while (i >= 0)
 	{
 		ft_compare_ints(stacks, count, i);
-		if (i < stacks->a.top
-			&& count[i] > count[ft_get_int_index(stacks->a, head)])
+		if (count[i] > count[ft_get_int_index(stacks->a, head)]
+			|| (count[i] == count[ft_get_int_index(stacks->a, head)]
+				&& stacks->a.stack[i] < head))
 			head = stacks->a.stack[i];
 		i --;
 	}

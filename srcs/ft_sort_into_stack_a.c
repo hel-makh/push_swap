@@ -6,7 +6,7 @@
 /*   By: hel-makh <hel-makh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 14:36:14 by hel-makh          #+#    #+#             */
-/*   Updated: 2022/01/21 13:53:16 by hel-makh         ###   ########.fr       */
+/*   Updated: 2022/01/21 20:51:41 by hel-makh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ static int	ft_li_nb_to_stack_a(t_stacks *stacks)
 	int	i;
 
 	count = (int *)ft_calloc(stacks->b.top, sizeof(int));
-	comp = -1;
+	comp = 0;
 	i = 0;
 	while (i < stacks->b.top)
 	{
@@ -85,8 +85,6 @@ static int	ft_li_nb_to_stack_a(t_stacks *stacks)
 		count[i] = ft_get_inst_nb_to_top(
 				stacks, stacks->b.stack[i], next_nb, NULL
 				);
-		if (comp == -1)
-			comp = i;
 		if (count[i] <= count[comp])
 			comp = i;
 		i ++;

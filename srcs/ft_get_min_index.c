@@ -6,7 +6,7 @@
 /*   By: hel-makh <hel-makh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 12:48:05 by hel-makh          #+#    #+#             */
-/*   Updated: 2022/01/20 13:55:04 by hel-makh         ###   ########.fr       */
+/*   Updated: 2022/01/21 16:40:47 by hel-makh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	ft_get_min_index(int *arr, int size)
 	i = 0;
 	while (i < size)
 	{
-		if (arr[i] < min)
+		if (arr[i] <= min)
 		{
 			min_index = i;
 			min = arr[min_index];

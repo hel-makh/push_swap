@@ -6,7 +6,7 @@
 /*   By: hel-makh <hel-makh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 03:19:33 by hel-makh          #+#    #+#             */
-/*   Updated: 2022/01/21 13:13:03 by hel-makh         ###   ########.fr       */
+/*   Updated: 2022/01/21 19:02:10 by hel-makh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	ft_check_instructions(t_stacks *stacks)
 	}
 	ft_apply_instructions(stacks, instructions);
 	instructions = ft_free(instructions);
-	if (ft_is_sorted(stacks))
+	if (ft_is_sorted(stacks) && !stacks->b.top)
 		ft_putendl_fd("OK", STDOUT_FILENO);
 	else
 		ft_putendl_fd("KO", STDOUT_FILENO);
