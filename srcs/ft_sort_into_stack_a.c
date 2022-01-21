@@ -6,7 +6,7 @@
 /*   By: hel-makh <hel-makh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 14:36:14 by hel-makh          #+#    #+#             */
-/*   Updated: 2022/01/20 18:17:47 by hel-makh         ###   ########.fr       */
+/*   Updated: 2022/01/21 12:50:33 by hel-makh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ static int	ft_li_nb_to_stack_a(t_stacks *stacks)
 				);
 		if (comp == -1)
 			comp = i;
-		if (count[i] < count[comp])
+		if (count[i] <= count[comp])
 			comp = i;
 		i ++;
 	}
