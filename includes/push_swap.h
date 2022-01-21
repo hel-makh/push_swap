@@ -6,7 +6,7 @@
 /*   By: hel-makh <hel-makh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 10:59:08 by hel-makh          #+#    #+#             */
-/*   Updated: 2022/01/19 21:17:08 by hel-makh         ###   ########.fr       */
+/*   Updated: 2022/01/21 01:30:25 by hel-makh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <stdlib.h>
+# include <limits.h>
 # include "../Libft/libft.h"
 
 typedef struct s_stack {
@@ -30,21 +31,34 @@ typedef struct s_stacks {
 	char	*instructions;
 }	t_stacks;
 
+long	ft_long_atoi(const char *str);
 char	*ft_strnjoin(char const *s1, char const *s2, size_t n);
 void	*ft_free(void *ptr);
 void	*ft_free_2d(char **ptr);
 void	*ft_free_3d(char ***ptr);
+int		ft_get_min_index(int *arr, int size);
 
+void    sa(t_stacks *stacks);
 void    ft_sa(t_stacks *stacks);
+void	sb(t_stacks *stacks);
 void	ft_sb(t_stacks *stacks);
+void	ss(t_stacks *stacks);
 void	ft_ss(t_stacks *stacks);
+void	pa(t_stacks *stacks);
 void	ft_pa(t_stacks *stacks);
+void	pb(t_stacks *stacks);
 void	ft_pb(t_stacks *stacks);
+void	ra(t_stacks *stacks);
 void	ft_ra(t_stacks *stacks);
+void	rb(t_stacks *stacks);
 void	ft_rb(t_stacks *stacks);
+void	rr(t_stacks *stacks);
 void	ft_rr(t_stacks *stacks);
+void	rra(t_stacks *stacks);
 void	ft_rra(t_stacks *stacks);
+void	rrb(t_stacks *stacks);
 void	ft_rrb(t_stacks *stacks);
+void	rrr(t_stacks *stacks);
 void	ft_rrr(t_stacks *stacks);
 
 t_stack	ft_sort(t_stack st);
