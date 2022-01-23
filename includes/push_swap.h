@@ -6,7 +6,7 @@
 /*   By: hel-makh <hel-makh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 10:59:08 by hel-makh          #+#    #+#             */
-/*   Updated: 2022/01/21 13:52:08 by hel-makh         ###   ########.fr       */
+/*   Updated: 2022/01/23 18:40:33 by hel-makh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include "../Libft/libft.h"
 
 typedef struct s_stack {
-    int	*stack;
+	int	*stack;
 	int	top;
 }	t_stack;
 
@@ -37,8 +37,8 @@ void	*ft_free_2d(char **ptr);
 void	*ft_free_3d(char ***ptr);
 int		ft_get_min_index(int *arr, int size);
 
-void    sa(t_stacks *stacks);
-void    ft_sa(t_stacks *stacks);
+void	sa(t_stacks *stacks);
+void	ft_sa(t_stacks *stacks);
 void	sb(t_stacks *stacks);
 void	ft_sb(t_stacks *stacks);
 void	ss(t_stacks *stacks);
@@ -63,7 +63,7 @@ void	ft_rrr(t_stacks *stacks);
 int		ft_increment_index(t_stack st, int index, int inc_by);
 int		ft_decrement_index(t_stack st, int index, int dec_by);
 int		ft_get_min(t_stack st);
-int     ft_get_int_index(t_stack st, int nb);
+int		ft_get_int_index(t_stack st, int nb);
 int		ft_get_biggest_stack_head(t_stacks *stacks);
 
 void	ft_init_stack_b(t_stacks *stacks);

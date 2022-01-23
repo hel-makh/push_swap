@@ -65,20 +65,20 @@ LIBFT			=	./Libft
 
 LIB				=	./Libft/libft.a
 
-GCC				=	gcc
+CC				=	cc
 
 CFLAGS			=	-Wall -Wextra -Werror
 
 RM				=	rm -f
 
 .c.o:
-				$(GCC) $(CFLAGS) -c $< -o $(<:.c=.o)
+				$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 
 $(NAME):		$(OBJS) $(HEADER) $(LIB)
-				$(GCC) $(CFLAGS) $(OBJS) $(LIB) -o $(NAME)
+				$(CC) $(CFLAGS) $(OBJS) $(LIB) -o $(NAME)
 
 bonus:			$(OBJS_BONUS) $(HEADER_BONUS) $(LIB)
-				$(GCC) $(CFLAGS) $(OBJS_BONUS) $(LIB) -o $(NAME_BONUS)
+				$(CC) $(CFLAGS) $(OBJS_BONUS) $(LIB) -o $(NAME_BONUS)
 
 all:			$(NAME)
 

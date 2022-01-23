@@ -6,7 +6,7 @@
 /*   By: hel-makh <hel-makh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 10:59:08 by hel-makh          #+#    #+#             */
-/*   Updated: 2022/01/21 13:52:12 by hel-makh         ###   ########.fr       */
+/*   Updated: 2022/01/23 18:40:49 by hel-makh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ typedef struct s_line
 }	t_line;
 
 typedef struct s_stack {
-    int	*stack;
+	int	*stack;
 	int	top;
 }	t_stack;
 
@@ -47,8 +47,8 @@ void	*ft_free_2d(char **ptr);
 void	*ft_free_3d(char ***ptr);
 char	*get_next_line(int fd);
 
-void    sa(t_stacks *stacks);
-void    ft_sa(t_stacks *stacks);
+void	sa(t_stacks *stacks);
+void	ft_sa(t_stacks *stacks);
 void	sb(t_stacks *stacks);
 void	ft_sb(t_stacks *stacks);
 void	ss(t_stacks *stacks);
