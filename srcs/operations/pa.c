@@ -6,7 +6,7 @@
 /*   By: hel-makh <hel-makh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 14:51:46 by hel-makh          #+#    #+#             */
-/*   Updated: 2022/01/20 18:18:08 by hel-makh         ###   ########.fr       */
+/*   Updated: 2022/01/23 16:19:13 by hel-makh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	pa(t_stacks *stacks)
 		return ;
 	stacks->a.stack[stacks->a.top] = stacks->b.stack[stacks->b.top - 1];
 	stacks->a.top ++;
-	stacks->b.stack[stacks->b.top - 1] = (int) NULL;
+	stacks->b.stack[stacks->b.top - 1] = 0;
 	stacks->b.top --;
 }
 
