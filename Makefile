@@ -61,7 +61,11 @@ SRCS_BONUS		=	srcs/ft_long_atoi.c\
 OBJS_BONUS		=	$(SRCS_BONUS:.c=.o)\
 					$(MAIN_BONUS:.c=.o)
 
-GCC				=	cc
+LIBFT			=	./Libft
+
+LIB				=	./Libft/libft.a
+
+GCC				=	gcc
 
 CFLAGS			=	-Wall -Wextra -Werror
 
@@ -70,24 +74,24 @@ RM				=	rm -f
 .c.o:
 				$(GCC) $(CFLAGS) -c $< -o $(<:.c=.o)
 
-$(NAME):		$(OBJS) $(HEADER)
-				make bonus -C Libft
-				mv Libft/libft.a ./libft.a
-				$(GCC) $(CFLAGS) libft.a $(OBJS) -o $(NAME)
+$(NAME):		$(OBJS) $(HEADER) $(LIB)
+				$(GCC) $(CFLAGS) $(OBJS) $(LIB) -o $(NAME)
 
-bonus:			$(OBJS_BONUS) $(HEADER_BONUS)
-				make bonus -C Libft
-				mv Libft/libft.a ./libft.a
-				$(GCC) $(CFLAGS) libft.a $(OBJS_BONUS) -o $(NAME_BONUS)
+bonus:			$(OBJS_BONUS) $(HEADER_BONUS) $(LIB)
+				$(GCC) $(CFLAGS) $(OBJS_BONUS) $(LIB) -o $(NAME_BONUS)
 
 all:			$(NAME)
+
+$(LIB):
+				make bonus -C $(LIBFT)
 
 clean:
 				$(RM) $(OBJS) $(OBJS_BONUS)
 				make clean -C Libft
 
 fclean:			clean
-				$(RM) $(NAME) $(NAME_BONUS) libft.a
+				$(RM) $(NAME) $(NAME_BONUS)
+				make fclean -C Libft
 
 re:				fclean all
 
