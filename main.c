@@ -6,7 +6,7 @@
 /*   By: hel-makh <hel-makh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 11:11:10 by hel-makh          #+#    #+#             */
-/*   Updated: 2022/01/21 18:20:43 by hel-makh         ###   ########.fr       */
+/*   Updated: 2022/01/23 17:25:03 by hel-makh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,17 +37,15 @@ static int	ft_args_count(char *argv[], int argc)
 	char	**digits;
 	int		args_count;
 	int		i;
-	int		j;
 
 	args_count = 0;
-	i = 0;
 	while (argc >= 0)
 	{
 		digits = ft_split(argv[argc], ' ');
-		j = 0;
-		while (digits[j])
-			j ++;
-		args_count += j;
+		i = 0;
+		while (digits[i])
+			i ++;
+		args_count += i;
 		digits = ft_free_2d(digits);
 		argc --;
 	}
