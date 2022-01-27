@@ -6,7 +6,7 @@
 /*   By: hel-makh <hel-makh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 14:36:14 by hel-makh          #+#    #+#             */
-/*   Updated: 2022/01/21 20:51:41 by hel-makh         ###   ########.fr       */
+/*   Updated: 2022/01/27 18:53:57 by hel-makh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ static int	ft_get_int_next_to(t_stack st, int nb)
 {
 	int	i;
 	int	j;
-	int	smallest;
 
 	i = 0;
 	while (i < st.top)
@@ -27,15 +26,7 @@ static int	ft_get_int_next_to(t_stack st, int nb)
 			return (st.stack[j]);
 		i ++;
 	}
-	smallest = st.stack[0];
-	i = 1;
-	while (i < st.top)
-	{
-		if (st.stack[i] < smallest)
-			smallest = st.stack[i];
-		i ++;
-	}
-	return (smallest);
+	return (ft_get_min(st));
 }
 
 static int	ft_get_inst_nb_to_top(
@@ -48,14 +39,6 @@ static int	ft_get_inst_nb_to_top(
 
 	index = ft_get_int_index(stacks->b, nb);
 	next_nb_index = ft_get_int_index(stacks->a, next_nb);
-	if (stacks->b.top - 1 - index > stacks->a.top - 1 - next_nb_index)
-		inst_nb[1] = stacks->b.top - 1 - index;
-	else
-		inst_nb[1] = stacks->a.top - 1 - next_nb_index;
-	if (index + 1 > next_nb_index + 1)
-		inst_nb[2] = index + 1;
-	else
-		inst_nb[2] = next_nb_index + 1;
 	if (index >= stacks->b.top / 2)
 		inst_nb[0] = stacks->b.top - 1 - index;
 	else
@@ -64,6 +47,14 @@ static int	ft_get_inst_nb_to_top(
 		inst_nb[0] += stacks->a.top - 1 - next_nb_index;
 	else
 		inst_nb[0] += next_nb_index + 1;
+	if (index + 1 > next_nb_index + 1)
+		inst_nb[1] = index + 1;
+	else
+		inst_nb[1] = next_nb_index + 1;
+	if (stacks->b.top - 1 - index > stacks->a.top - 1 - next_nb_index)
+		inst_nb[2] = stacks->b.top - 1 - index;
+	else
+		inst_nb[2] = stacks->a.top - 1 - next_nb_index;
 	if (path)
 		*path = ft_get_min_index(inst_nb, 3);
 	return (inst_nb[ft_get_min_index(inst_nb, 3)]);
@@ -98,11 +89,11 @@ static void	ft_push_to_stack_a(t_stacks *stacks, int nb, int next_nb, int path)
 	if (path == 1)
 		while (stacks->a.stack[stacks->a.top - 1] != next_nb
 			&& stacks->b.stack[stacks->b.top - 1] != nb)
-			ft_rr(stacks);
+			ft_rrr(stacks);
 	else if (path == 2)
 		while (stacks->a.stack[stacks->a.top - 1] != next_nb
 			&& stacks->b.stack[stacks->b.top - 1] != nb)
-			ft_rrr(stacks);
+			ft_rr(stacks);
 	while (stacks->a.stack[stacks->a.top - 1] != next_nb)
 	{
 		if (ft_get_int_index(stacks->a, next_nb) >= stacks->a.top / 2)

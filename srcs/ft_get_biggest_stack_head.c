@@ -6,7 +6,7 @@
 /*   By: hel-makh <hel-makh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 16:33:04 by hel-makh          #+#    #+#             */
-/*   Updated: 2022/01/21 18:09:29 by hel-makh         ###   ########.fr       */
+/*   Updated: 2022/01/27 18:47:04 by hel-makh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ static void	ft_compare_ints(t_stacks *stacks, int *count, int i)
 {
 	int	comp;
 	int	j;
+	int	k;
 
 	comp = i;
 	j = ft_decrement_index(stacks->a, i, 1);
@@ -23,6 +24,10 @@ static void	ft_compare_ints(t_stacks *stacks, int *count, int i)
 	{
 		if (stacks->a.stack[j] > stacks->a.stack[comp])
 		{
+			k = ft_decrement_index(stacks->a, j, 1);
+			if (stacks->a.stack[k] < stacks->a.stack[j]
+				&& stacks->a.stack[k] > stacks->a.stack[comp])
+				count[i] += 1;
 			count[i] += 1;
 			comp = j;
 		}
@@ -44,7 +49,7 @@ int	ft_get_biggest_stack_head(t_stacks *stacks)
 		ft_compare_ints(stacks, count, i);
 		if (count[i] > count[ft_get_int_index(stacks->a, head)]
 			|| (count[i] == count[ft_get_int_index(stacks->a, head)]
-				&& stacks->a.stack[i] < head))
+				&& stacks->a.stack[i] > head))
 			head = stacks->a.stack[i];
 		i --;
 	}
