@@ -6,7 +6,7 @@
 /*   By: hel-makh <hel-makh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 10:59:08 by hel-makh          #+#    #+#             */
-/*   Updated: 2022/01/23 18:40:33 by hel-makh         ###   ########.fr       */
+/*   Updated: 2022/01/27 18:36:49 by hel-makh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ typedef struct s_stack {
 typedef struct s_stacks {
 	t_stack	a;
 	t_stack	b;
-	char	*instructions;
 }	t_stacks;
 
 long	ft_long_atoi(const char *str);
@@ -68,7 +67,6 @@ int		ft_get_biggest_stack_head(t_stacks *stacks);
 
 void	ft_init_stack_b(t_stacks *stacks);
 void	ft_sort_into_stack_a(t_stacks *stacks);
-void	ft_print_instructions(char *instructions);
 void	ft_quit_program(int status, t_stacks *stacks);
 
 #endif

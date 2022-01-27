@@ -6,7 +6,7 @@
 /*   By: hel-makh <hel-makh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 14:51:46 by hel-makh          #+#    #+#             */
-/*   Updated: 2022/01/23 16:19:13 by hel-makh         ###   ########.fr       */
+/*   Updated: 2022/01/27 18:18:59 by hel-makh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,5 @@ void	pa(t_stacks *stacks)
 void	ft_pa(t_stacks *stacks)
 {
 	pa(stacks);
-	stacks->instructions = ft_strnjoin(stacks->instructions, "pa\n", 3);
+	ft_putendl_fd("pa", STDOUT_FILENO);
 }

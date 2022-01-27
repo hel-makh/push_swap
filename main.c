@@ -6,7 +6,7 @@
 /*   By: hel-makh <hel-makh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 11:11:10 by hel-makh          #+#    #+#             */
-/*   Updated: 2022/01/23 17:25:03 by hel-makh         ###   ########.fr       */
+/*   Updated: 2022/01/27 18:36:41 by hel-makh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,11 +111,9 @@ int	main(int argc, char *argv[])
 		return (EXIT_FAILURE);
 	error = ft_create_stacks(&stacks, argv, argc - 1);
 	error += ft_check_duplicates(stacks.a);
-	stacks.instructions = ft_strdup("");
 	if (error)
 		ft_quit_program(EXIT_FAILURE, &stacks);
 	ft_init_stack_b(&stacks);
 	ft_sort_into_stack_a(&stacks);
-	ft_print_instructions(stacks.instructions);
 	ft_quit_program(EXIT_SUCCESS, &stacks);
 }

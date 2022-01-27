@@ -6,7 +6,7 @@
 /*   By: hel-makh <hel-makh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 11:39:26 by hel-makh          #+#    #+#             */
-/*   Updated: 2022/01/20 18:18:19 by hel-makh         ###   ########.fr       */
+/*   Updated: 2022/01/27 18:21:50 by hel-makh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,5 @@ void	rra(t_stacks *stacks)
 void	ft_rra(t_stacks *stacks)
 {
 	rra(stacks);
-	stacks->instructions = ft_strnjoin(stacks->instructions, "rra\n", 4);
+	ft_putendl_fd("rra", STDOUT_FILENO);
 }

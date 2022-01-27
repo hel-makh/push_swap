@@ -6,7 +6,7 @@
 /*   By: hel-makh <hel-makh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 10:59:08 by hel-makh          #+#    #+#             */
-/*   Updated: 2022/01/23 18:40:49 by hel-makh         ###   ########.fr       */
+/*   Updated: 2022/01/27 18:22:40 by hel-makh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ typedef struct s_stack {
 typedef struct s_stacks {
 	t_stack	a;
 	t_stack	b;
-	char	*instructions;
 }	t_stacks;
 
 long	ft_long_atoi(const char *str);
