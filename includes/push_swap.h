@@ -6,7 +6,7 @@
 /*   By: hel-makh <hel-makh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 10:59:08 by hel-makh          #+#    #+#             */
-/*   Updated: 2022/01/27 18:36:49 by hel-makh         ###   ########.fr       */
+/*   Updated: 2022/01/28 11:26:27 by hel-makh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ typedef struct s_stacks {
 }	t_stacks;
 
 long	ft_long_atoi(const char *str);
-char	*ft_strnjoin(char const *s1, char const *s2, size_t n);
 void	*ft_free(void *ptr);
 void	*ft_free_2d(char **ptr);
 void	*ft_free_3d(char ***ptr);
