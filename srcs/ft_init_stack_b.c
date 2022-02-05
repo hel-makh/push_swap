@@ -6,7 +6,7 @@
 /*   By: hel-makh <hel-makh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 12:25:49 by hel-makh          #+#    #+#             */
-/*   Updated: 2022/01/27 18:42:29 by hel-makh         ###   ########.fr       */
+/*   Updated: 2022/02/05 18:59:03 by hel-makh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,8 @@ static int	*ft_get_stack_flags(t_stacks *stacks, int stack_head)
 	int	i;
 
 	flags = (int *)ft_calloc(stacks->a.top, sizeof(int));
+	if (!flags)
+		ft_quit_program(EXIT_FAILURE, stacks);
 	comp = ft_get_int_index(stacks->a, stack_head);
 	i = ft_decrement_index(stacks->a, comp, 1);
 	while (stacks->a.stack[i] != stack_head)
@@ -87,6 +89,8 @@ void	ft_init_stack_b(t_stacks *stacks)
 	int	i;
 
 	stack = (int *)ft_calloc(stacks->a.top, sizeof(int));
+	if (!stack)
+		ft_quit_program(EXIT_FAILURE, stacks);
 	stack = ft_memcpy(stack, stacks->a.stack, stacks->a.top * sizeof(int));
 	stack_head = ft_get_biggest_stack_head(stacks);
 	flags = ft_get_stack_flags(stacks, stack_head);
