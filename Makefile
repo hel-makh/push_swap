@@ -4,7 +4,7 @@ NAME			=	push_swap
 
 MAIN			=	main.c
 
-SRCS			=	srcs/ft_strcmp.c\
+SRCS			=	srcs/ft_arrlen.c\
 					srcs/ft_isint.c\
 					srcs/ft_atoi_ld.c\
 					srcs/ft_free.c\
@@ -38,7 +38,7 @@ NAME_BONUS		=	checker
 
 MAIN_BONUS		=	checker.c
 
-SRCS_BONUS		=	srcs/ft_strcmp.c\
+SRCS_BONUS		=	srcs/ft_arrlen.c\
 					srcs/ft_isint.c\
 					srcs/ft_atoi_ld.c\
 					srcs/ft_strcpy.c\

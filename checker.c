@@ -6,7 +6,7 @@
 /*   By: hel-makh <hel-makh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 11:11:10 by hel-makh          #+#    #+#             */
-/*   Updated: 2022/02/05 19:19:39 by hel-makh         ###   ########.fr       */
+/*   Updated: 2022/02/05 23:32:12 by hel-makh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,18 +66,18 @@ static int	ft_args_iter(t_stacks *stacks, char *argv, int *index)
 	if (!digits)
 		ft_quit_checker(EXIT_FAILURE, stacks);
 	return_value = 0;
-	i = 0;
-	while (digits[i])
-		i ++;
+	i = ft_arrlen(digits);
 	while (--i >= 0)
 	{
+		while (*digits[i] == ' ')
+			*(digits + i) += 1;
 		if (ft_atoi_ld(digits[i]) > INT_MAX || ft_atoi_ld(digits[i]) < INT_MIN
-			|| (ft_atoi(digits[i]) == 0 && ft_strcmp(digits[i], "0")
-				&& ft_strcmp(digits[i], "-0") && ft_strcmp(digits[i], "+0"))
-			|| !ft_isint(digits[i]))
+			|| !ft_isint(digits[i]) || (ft_atoi(digits[i]) == 0
+				&& ft_strncmp(digits[i], "0", 1)
+				&& ft_strncmp(digits[i], "-0", 2)
+				&& ft_strncmp(digits[i], "+0", 2)))
 			return_value += 1;
-		stacks->a.stack[*index] = ft_atoi(digits[i]);
-		*index += 1;
+		stacks->a.stack[(*index)++] = ft_atoi(digits[i]);
 	}
 	digits = ft_free_2d(digits);
 	return (return_value);

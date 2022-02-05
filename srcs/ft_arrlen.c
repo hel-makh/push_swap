@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_arrlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hel-makh <hel-makh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/05 19:07:02 by hel-makh          #+#    #+#             */
-/*   Updated: 2022/02/05 19:07:06 by hel-makh         ###   ########.fr       */
+/*   Created: 2022/02/05 23:28:29 by hel-makh          #+#    #+#             */
+/*   Updated: 2022/02/05 23:30:43 by hel-makh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/checker.h"
+#include "../includes/push_swap.h"
 
-int	ft_strcmp(const char *s1, const char *s2)
+size_t	ft_arrlen(char **arr)
 {
-	size_t	i;
+	size_t	arrlen;
 
-	i = 0;
-	while (s1[i] != '\0' || s2[i] != '\0')
-	{
-		if (s1[i] != s2[i])
-			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-		i ++;
-	}
-	return (0);
+	arrlen = 0;
+	while (arr[arrlen])
+		arrlen ++;
+	return (arrlen);
 }
