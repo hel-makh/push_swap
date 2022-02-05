@@ -6,7 +6,7 @@
 /*   By: hel-makh <hel-makh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 03:19:33 by hel-makh          #+#    #+#             */
-/*   Updated: 2022/01/21 19:02:10 by hel-makh         ###   ########.fr       */
+/*   Updated: 2022/02/05 19:23:05 by hel-makh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ static void	ft_apply_instructions(t_stacks *stacks, char *instructions)
 	int		i;
 
 	inst_array = ft_split(instructions, '\n');
+	if (!inst_array)
+		ft_quit_checker(EXIT_FAILURE, stacks);
 	i = 0;
 	while (inst_array[i])
 	{
@@ -43,12 +45,10 @@ static void	ft_apply_instructions(t_stacks *stacks, char *instructions)
 		else if (inst_array[i][0] == 'p')
 			ft_push(stacks, inst_array[i]);
 		else if ((inst_array[i][0] == 'r' && inst_array[i][1] != 'r')
-			|| (inst_array[i][0] == 'r'
-				&& inst_array[i][1] == 'r'
+			|| (inst_array[i][0] == 'r' && inst_array[i][1] == 'r'
 				&& !inst_array[i][2]))
 			ft_shift_up(stacks, inst_array[i]);
-		else if (inst_array[i][0] == 'r'
-			&& inst_array[i][1] == 'r'
+		else if (inst_array[i][0] == 'r' && inst_array[i][1] == 'r'
 			&& inst_array[i][2])
 			ft_shift_down(stacks, inst_array[i]);
 		else
@@ -64,6 +64,8 @@ void	ft_check_instructions(t_stacks *stacks)
 	char	*instructions;
 
 	instructions = ft_strdup("");
+	if (!instructions)
+		ft_quit_checker(EXIT_FAILURE, stacks);
 	while (1)
 	{
 		instruction = get_next_line(STDIN_FILENO);
@@ -71,6 +73,8 @@ void	ft_check_instructions(t_stacks *stacks)
 			break ;
 		instructions = ft_strnjoin(instructions, instruction,
 				ft_strlen(instruction));
+		if (!instructions)
+			ft_quit_checker(EXIT_FAILURE, stacks);
 		instruction = ft_free(instruction);
 	}
 	ft_apply_instructions(stacks, instructions);

@@ -1,37 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_long_atoi.c                                     :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hel-makh <hel-makh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/20 22:49:53 by hel-makh          #+#    #+#             */
-/*   Updated: 2022/01/20 22:50:09 by hel-makh         ###   ########.fr       */
+/*   Created: 2022/02/05 19:07:02 by hel-makh          #+#    #+#             */
+/*   Updated: 2022/02/05 19:07:06 by hel-makh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../includes/checker.h"
 
-long	ft_long_atoi(const char *str)
+int	ft_strcmp(const char *s1, const char *s2)
 {
-	long	sign;
-	long	nbr;
+	size_t	i;
 
-	sign = 1;
-	nbr = 0;
-	while (*str == ' ' || *str == '\t' || *str == '\n'
-		|| *str == '\v' || *str == '\r' || *str == '\f')
-		str ++;
-	if (*str == '+' || *str == '-')
+	i = 0;
+	while (s1[i] != '\0' || s2[i] != '\0')
 	{
-		if (*str == '-')
-			sign *= -1;
-		str ++;
+		if (s1[i] != s2[i])
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+		i ++;
 	}
-	while (*str >= '0' && *str <= '9')
-	{
-		nbr = (nbr * 10) + (*str - '0');
-		str ++;
-	}
-	return (sign * nbr);
+	return (0);
 }

@@ -4,7 +4,9 @@ NAME			=	push_swap
 
 MAIN			=	main.c
 
-SRCS			=	srcs/ft_long_atoi.c\
+SRCS			=	srcs/ft_strcmp.c\
+					srcs/ft_isint.c\
+					srcs/ft_atoi_ld.c\
 					srcs/ft_free.c\
 					srcs/ft_get_min_index.c\
 					srcs/operations/sa.c\
@@ -36,7 +38,9 @@ NAME_BONUS		=	checker
 
 MAIN_BONUS		=	checker.c
 
-SRCS_BONUS		=	srcs/ft_long_atoi.c\
+SRCS_BONUS		=	srcs/ft_strcmp.c\
+					srcs/ft_isint.c\
+					srcs/ft_atoi_ld.c\
 					srcs/ft_strcpy.c\
 					srcs/ft_strnjoin.c\
 					srcs/ft_free.c\

@@ -6,7 +6,7 @@
 /*   By: hel-makh <hel-makh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 11:11:10 by hel-makh          #+#    #+#             */
-/*   Updated: 2022/01/23 17:25:10 by hel-makh         ###   ########.fr       */
+/*   Updated: 2022/02/05 19:19:39 by hel-makh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ static int	ft_args_count(char *argv[], int argc)
 	while (argc >= 0)
 	{
 		digits = ft_split(argv[argc], ' ');
+		if (!digits)
+			exit(EXIT_FAILURE);
 		i = 0;
 		while (digits[i])
 			i ++;
@@ -61,18 +63,18 @@ static int	ft_args_iter(t_stacks *stacks, char *argv, int *index)
 	if (!*argv)
 		return (1);
 	digits = ft_split(argv, ' ');
+	if (!digits)
+		ft_quit_checker(EXIT_FAILURE, stacks);
 	return_value = 0;
 	i = 0;
 	while (digits[i])
 		i ++;
 	while (--i >= 0)
 	{
-		if (ft_long_atoi(digits[i]) > INT_MAX
-			|| ft_long_atoi(digits[i]) < INT_MIN
-			|| (ft_atoi(digits[i]) == 0
-				&& ft_strncmp(digits[i], "0", ft_strlen(digits[i]))
-				&& ft_strncmp(digits[i], "-0", ft_strlen(digits[i]))
-				&& ft_strncmp(digits[i], "+0", ft_strlen(digits[i]))))
+		if (ft_atoi_ld(digits[i]) > INT_MAX || ft_atoi_ld(digits[i]) < INT_MIN
+			|| (ft_atoi(digits[i]) == 0 && ft_strcmp(digits[i], "0")
+				&& ft_strcmp(digits[i], "-0") && ft_strcmp(digits[i], "+0"))
+			|| !ft_isint(digits[i]))
 			return_value += 1;
 		stacks->a.stack[*index] = ft_atoi(digits[i]);
 		*index += 1;
@@ -90,7 +92,14 @@ static int	ft_create_stacks(t_stacks *stacks, char *argv[], int size)
 	return_value = 0;
 	args_count = ft_args_count(argv, size);
 	stacks->a.stack = ft_calloc(args_count, sizeof(int));
+	if (!stacks->a.stack)
+		exit(EXIT_FAILURE);
 	stacks->b.stack = ft_calloc(args_count, sizeof(int));
+	if (!stacks->b.stack)
+	{
+		stacks->a.stack = ft_free(stacks->a.stack);
+		exit(EXIT_FAILURE);
+	}
 	i = 0;
 	while (size > 0)
 	{
@@ -112,7 +121,7 @@ int	main(int argc, char *argv[])
 	error = ft_create_stacks(&stacks, argv, argc - 1);
 	error += ft_check_duplicates(stacks.a);
 	if (error)
-		ft_quit_checker(EXIT_FAILURE, &stacks);
+		ft_quit_checker(2, &stacks);
 	ft_check_instructions(&stacks);
 	ft_quit_checker(EXIT_SUCCESS, &stacks);
 }

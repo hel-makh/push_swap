@@ -1,25 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_quit_checker.c                                  :+:      :+:    :+:   */
+/*   ft_atoi_ld.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hel-makh <hel-makh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/18 22:56:32 by hel-makh          #+#    #+#             */
-/*   Updated: 2022/02/05 19:19:12 by hel-makh         ###   ########.fr       */
+/*   Created: 2022/01/20 22:49:53 by hel-makh          #+#    #+#             */
+/*   Updated: 2022/01/20 22:50:09 by hel-makh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/checker.h"
+#include "../includes/push_swap.h"
 
-void	ft_quit_checker(int status, t_stacks *stacks)
+long	ft_atoi_ld(const char *str)
 {
-	if (status == 2)
+	long	sign;
+	long	nbr;
+
+	sign = 1;
+	nbr = 0;
+	while (*str == ' ' || *str == '\t' || *str == '\n'
+		|| *str == '\v' || *str == '\r' || *str == '\f')
+		str ++;
+	if (*str == '+' || *str == '-')
 	{
-		ft_putendl_fd("Error", STDERR_FILENO);
-		status = EXIT_FAILURE;
+		if (*str == '-')
+			sign *= -1;
+		str ++;
 	}
-	ft_free(stacks->a.stack);
-	ft_free(stacks->b.stack);
-	exit(status);
+	while (*str >= '0' && *str <= '9')
+	{
+		nbr = (nbr * 10) + (*str - '0');
+		str ++;
+	}
+	return (sign * nbr);
 }
