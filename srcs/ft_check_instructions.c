@@ -6,7 +6,7 @@
 /*   By: hel-makh <hel-makh@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 03:19:33 by hel-makh          #+#    #+#             */
-/*   Updated: 2022/02/05 19:23:05 by hel-makh         ###   ########.fr       */
+/*   Updated: 2022/02/06 16:20:35 by hel-makh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static void	ft_apply_instructions(t_stacks *stacks, char *instructions)
 			&& inst_array[i][2])
 			ft_shift_down(stacks, inst_array[i]);
 		else
-			ft_quit_checker(EXIT_FAILURE, stacks);
+			ft_quit_checker(2, stacks);
 		i ++;
 	}
 	inst_array = ft_free_2d(inst_array);
